@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-  has_many :todos, dependent: destroy
+  has_many :todos
+  accepts_nested_attributes_for :todos
 
-  validates :title, presence: true, length: { min: 3 }
+  validates :title, presence: true
 end
