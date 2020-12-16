@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get '/projects', to: 'projects#index'
-  post '/todos', to: 'todos#create'
-  patch '/projects/:project_id/todos/:id', to: 'todos#update'
+  resources :projects, defaults: { format: :json }, only: :index do
+    resources :todos, only: :update
+  end
+  resources :todos, only: :create
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
