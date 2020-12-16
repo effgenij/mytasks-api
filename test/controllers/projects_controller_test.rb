@@ -1,8 +1,9 @@
 require "test_helper"
 
-class ProjectsControllerTest < ActionDispatch::IntegrationTest
+class ProjectsControllerTest < ActionController::TestCase
   test "should get index" do
-    get projects_index_url
+    create :project
+    get :index, format: :json
     assert_response :success
   end
 end

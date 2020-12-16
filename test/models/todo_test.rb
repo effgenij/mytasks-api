@@ -1,7 +1,8 @@
 require "test_helper"
 
 class TodoTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'create' do
+    todo = create :todo
+    assert todo.persisted?
+  end
 end
